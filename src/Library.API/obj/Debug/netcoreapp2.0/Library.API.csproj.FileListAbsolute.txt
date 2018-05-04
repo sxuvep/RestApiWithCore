@@ -1,0 +1,11 @@
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\obj\Debug\netcoreapp2.0\Library.API.csprojResolveAssemblyReference.cache
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\obj\Debug\netcoreapp2.0\Library.API.csproj.CoreCompileInputs.cache
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\obj\Debug\netcoreapp2.0\Library.API.AssemblyInfoInputs.cache
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\obj\Debug\netcoreapp2.0\Library.API.AssemblyInfo.cs
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\bin\Debug\netcoreapp2.0\Library.API.deps.json
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\bin\Debug\netcoreapp2.0\Library.API.runtimeconfig.json
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\bin\Debug\netcoreapp2.0\Library.API.runtimeconfig.dev.json
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\bin\Debug\netcoreapp2.0\Library.API.dll
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\bin\Debug\netcoreapp2.0\Library.API.pdb
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\obj\Debug\netcoreapp2.0\Library.API.dll
+\\Mac\Home\Downloads\asp-dot-net-core-restful-api-building\03\demos\csproj_msbuild_core2\end\Library\src\Library.API\obj\Debug\netcoreapp2.0\Library.API.pdb
