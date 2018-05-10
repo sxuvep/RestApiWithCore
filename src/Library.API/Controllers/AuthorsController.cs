@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Library.API.Helpers;
 using AutoMapper;
 using Library.API.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace Library.API.Controllers
 {
@@ -63,6 +64,42 @@ namespace Library.API.Controllers
             return CreatedAtRoute("GetAuthor", new { id = authorToReturn.Id }, authorToReturn);
 
 
+        }
+
+        [HttpPost("{id}")]
+        public IActionResult BlockAuthorCreation(Guid id)
+        {
+            if(_libraryRepository.AuthorExists(id))
+            {
+                return new StatusCodeResult(StatusCodes.Status409Conflict);
+            }
+
+            return NotFound();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAuthor(Guid id)
+        {
+            if(!_libraryRepository.AuthorExists(id))
+            {
+                return NotFound();
+            }
+
+            var authorFromRepo = _libraryRepository.GetAuthor(id);
+
+            if(authorFromRepo==null)
+            {
+                return NotFound();
+            }
+
+            _libraryRepository.DeleteAuthor(authorFromRepo);
+
+            if(!_libraryRepository.Save())
+            {
+                throw new Exception($"Unable to delete author with id {id}");
+            }
+
+            return NoContent();
         }
     }
 }

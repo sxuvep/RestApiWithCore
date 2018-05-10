@@ -73,5 +73,75 @@ namespace Library.API.Controllers
             return CreatedAtRoute("GetBookForAuthor", new { authorId = bookToReturn.AuthorId, id = bookToReturn.Id }, bookToReturn);
 
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBookForAuthor(Guid authorId, Guid id)
+        {
+            if(!_libraryRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
+           var bookEntity= _libraryRepository.GetBookForAuthor(authorId,id);
+
+            if(bookEntity==null)
+            {
+                return NotFound();
+            }
+
+            _libraryRepository.DeleteBook(bookEntity);
+
+            if(!_libraryRepository.Save())
+            {
+                throw new Exception($"Unable to delete book for author {authorId}");
+            }
+
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateBookForAuthor(Guid authorId, Guid id, [FromBody] BookForUpdateDto updateBookDto)
+        {
+            if(updateBookDto==null)
+            {
+                return BadRequest();
+            }
+
+            if(!_libraryRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
+            var bookFromRepo = _libraryRepository.GetBookForAuthor(authorId, id);
+
+            if(bookFromRepo==null)
+            {
+                var bookToAdd = Mapper.Map<Book>(updateBookDto);
+                bookToAdd.Id = id;
+
+                _libraryRepository.AddBookForAuthor(authorId, bookToAdd);
+
+                if(!_libraryRepository.Save())
+                {
+                    throw new Exception($"Upserting book for author {authorId} failed on save");
+                }
+
+                var bookDtoToReturn = Mapper.Map<BookDto>(bookToAdd);
+
+                return CreatedAtRoute("GetBookForAuthor", new { authorId = authorId, id = bookToAdd.Id }, bookDtoToReturn);
+
+            }
+
+            Mapper.Map(updateBookDto, bookFromRepo);
+
+            _libraryRepository.UpdateBookForAuthor(bookFromRepo);
+
+            if(!_libraryRepository.Save())
+            {
+                throw new Exception("unable to update book");
+            }
+
+            return NoContent();
+        }
     }
 }

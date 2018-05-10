@@ -75,6 +75,8 @@ namespace Library.API
                 cfg.CreateMap<Models.AuthorCreationDto, Entities.Author>();
 
                 cfg.CreateMap<Models.BookCreationDto, Entities.Book>();
+
+                cfg.CreateMap<Models.BookForUpdateDto, Entities.Book>();
             });
 
 
